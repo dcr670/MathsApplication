@@ -1,6 +1,7 @@
 
 using MathsApp.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Xunit;
 
 namespace MathsApp.Tests
@@ -11,7 +12,10 @@ namespace MathsApp.Tests
 
         public MathsControllerTests()
         {
-            mathsController = new MathsController();
+            using var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+            var logger = loggerFactory.CreateLogger<MathsController>();
+
+            mathsController = new MathsController(logger);
         }
 
         [Fact]
