@@ -1,7 +1,8 @@
-
+using MathsApp.Classes;
 using MathsApp.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Xunit;
 
 namespace MathsApp.Tests
@@ -10,12 +11,33 @@ namespace MathsApp.Tests
     {
         MathsController mathsController;
 
+        public class MathsOptionsList : IOptions<MathsOptions>
+        {
+            public MathsOptions Value
+            {
+                get
+                {
+                    return new MathsOptions()
+                    {
+                        SplitRegExPattern = "(\\+|-|\\*|\\/)",
+                        SplitBODMASRegExPattern = "(\\+|-|\\*|\\/)",
+                        UseFallBackService = false,
+                        FallBackServiceURL = "http://api.mathjs.org/v4/",
+                        FallBackServiceURLParameter = "expr={0}"
+                    };
+                }
+            }
+        }
+
+
         public MathsControllerTests()
         {
+            var mathsOptions = new MathsOptionsList();
+
             using var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
             var logger = loggerFactory.CreateLogger<MathsController>();
 
-            mathsController = new MathsController(logger);
+            mathsController = new MathsController(mathsOptions, logger);
         }
 
         [Fact]
