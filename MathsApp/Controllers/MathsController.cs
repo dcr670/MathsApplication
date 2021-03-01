@@ -30,6 +30,8 @@ namespace MathsApp.Controllers
             }
         }
 
+        [Route("")]
+        [Route("Calculate")]
         public IActionResult Calculate(string expr, bool useBODMAS = false)
         {
             decimal value;
@@ -83,11 +85,39 @@ namespace MathsApp.Controllers
             catch (InvalidCastException ex)
             {
                 _logger.LogError(ex, $"Calculation Error: value not a valid decimal number: {ex.Message}");
+
+                // Attempt to call fallback service to get a result
+                if (_config.UseFallBackService)
+                {
+                    try
+                    {
+                        return Ok(CallThirdPartyService(expr));
+                    }
+                    catch (Exception exFallBack)
+                    {
+                        return BadRequest($"MathsApp Error: Calculation Error: value not a valid decimal number: {ex.Message}, invoked Fallback Service: {exFallBack.Message}");
+                    }
+                }
+
                 return BadRequest($"Calculation Error: value not a valid decimal number: {ex.Message}");
             }
             catch (OverflowException ex)
             {
                 _logger.LogError(ex, $"Calculation Error: decimal number too large: {ex.Message}");
+
+                // Attempt to call fallback service to get a result
+                if (_config.UseFallBackService)
+                {
+                    try
+                    {
+                        return Ok(CallThirdPartyService(expr));
+                    }
+                    catch (Exception exFallBack)
+                    {
+                        return BadRequest($"MathsApp Error: Calculation Error: value not a valid decimal number: {ex.Message}, invoked Fallback Service: {exFallBack.Message}");
+                    }
+                }
+
                 return BadRequest($"Calculation Error: decimal number too large: {ex.Message}");
             }
             catch (Exception ex)
@@ -97,6 +127,7 @@ namespace MathsApp.Controllers
             }
         }
 
+        [Route("CalculateBODMAS")]
         public string CalculateBODMAS(string expr)
         {
             decimal leftValue;
@@ -142,6 +173,36 @@ namespace MathsApp.Controllers
             bodmasFormula += leftValue;
 
             return bodmasFormula;
+        }
+
+        private string CallThirdPartyService(string calculation)
+        {
+            string result = string.Empty;
+            calculation = HttpUtility.UrlEncode(calculation);
+            string url = _config.FallBackServiceURL + "?" + string.Format(_config.FallBackServiceURLParameter, calculation);
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    using (var response = client.GetAsync(url))
+                    {
+                        result = response.Result.Content.ReadAsStringAsync().Result;
+
+                        if (response.Result.StatusCode != HttpStatusCode.OK)
+                        {
+                            throw new Exception(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error calling 3rd party maths service ({url}): " + ex.Message);
+                throw;
+            }
+
+            return result;
         }
     }
 }

@@ -6,19 +6,19 @@ namespace MathsApp.Classes
     {
         public const string CalculationConfig = "CalculationConfig";
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string SplitRegExPattern { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public bool UseFallBackService { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string FallBackServiceURL { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string FallBackServiceURLParameter { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string SplitBODMASRegExPattern { get; set; }
     }
 }

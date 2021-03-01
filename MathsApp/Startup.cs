@@ -40,9 +40,7 @@ namespace MathsApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Maths}/{action=Calculate}/{expr}");
+                endpoints.MapControllers();
             });
         }
     }
