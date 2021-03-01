@@ -1,0 +1,14 @@
+﻿@using (Html.BeginForm("Index", "Home"))
+{
+    <div>Enter Calculation :</div> @Html.TextArea("Calculation", string.Empty)
+    <br />
+    <br />
+    <div>Apply BODMAS rules :</div> @Html.CheckBox("UseBODMAS")
+    <br />
+    <br />
+    <input type="submit" />
+    <br />
+    <br />
+    <div>StatusCode :</div> @Html.TextBox("StatusCode", ViewData["StatusCode"] ?? string.Empty, new { @readonly = "readonly" })
+    <div>Result :</div> @Html.TextArea("Result", ViewData["Result"]?.ToString(), 5, 20, new { @readonly = "readonly" })
+}

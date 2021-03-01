@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathsApp", "MathsApp\MathsApp.csproj", "{C86C5504-1482-45F5-A4B3-D5F88F38446E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathsApp.Tests", "MathsApp.Tests\MathsApp.Tests.csproj", "{A53B6DBA-D34B-4243-9313-AD02707E8918}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathsApp.Tests", "MathsApp.Tests\MathsApp.Tests.csproj", "{A53B6DBA-D34B-4243-9313-AD02707E8918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathsAppClient", "MathsAppClient\MathsAppClient.csproj", "{3B16C68C-BB35-43F6-91CF-374E17B6B09F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A53B6DBA-D34B-4243-9313-AD02707E8918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A53B6DBA-D34B-4243-9313-AD02707E8918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A53B6DBA-D34B-4243-9313-AD02707E8918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B16C68C-BB35-43F6-91CF-374E17B6B09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B16C68C-BB35-43F6-91CF-374E17B6B09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B16C68C-BB35-43F6-91CF-374E17B6B09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B16C68C-BB35-43F6-91CF-374E17B6B09F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

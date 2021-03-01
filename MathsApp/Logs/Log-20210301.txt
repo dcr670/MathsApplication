@@ -71,3 +71,40 @@ MathsApp.Controllers.MathsController.CalculateBODMAS (MathsApp)
 System.InvalidCastException: 10x2
    at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
 2021-03-01T11:23:27.6438403+00:00 80000007-0001-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=10x2): Error: Undefined symbol x2 (09756617)
+2021-03-01T11:25:54.0984731+00:00  [INF] Application is shutting down... (90f52c38)
+2021-03-01T11:25:54.0984653+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:25:54.1104948+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:25:54.1122504+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:26:10.4981211+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:26:10.5082904+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:26:10.5099460+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:26:39.3188696+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:26:39.3371846+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:26:39.3397321+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:27:41.1313858+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:27:41.1463587+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:27:41.1483927+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:28:00.9768526+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:28:00.9869688+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:28:00.9886233+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:29:29.0810697+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:29:29.0984267+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:29:29.1016164+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:29:53.8873089+00:00 8000001d-0003-ff00-b63f-84710c7967bb [ERR] Calculation Error: decimal number too large: Value was either too large or too small for a Decimal. (bd93b623)
+System.OverflowException: Value was either too large or too small for a Decimal.
+   at System.Number.ThrowOverflowException(TypeCode type)
+   at System.Decimal.DecCalc.DecAddSub(DecCalc& d1, DecCalc& d2, Boolean sign)
+   at System.Decimal.op_Addition(Decimal d1, Decimal d2)
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 67
+2021-03-01T11:29:59.2555537+00:00 80000013-0002-fd00-b63f-84710c7967bb [ERR] Calculation Error: decimal number too large: Value was either too large or too small for a Decimal. (bd93b623)
+System.OverflowException: Value was either too large or too small for a Decimal.
+   at System.Number.ThrowOverflowException(TypeCode type)
+   at System.Decimal.DecCalc.DecAddSub(DecCalc& d1, DecCalc& d2, Boolean sign)
+   at System.Decimal.op_Addition(Decimal d1, Decimal d2)
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 67
+2021-03-01T11:30:01.9316833+00:00 80000002-0004-fb00-b63f-84710c7967bb [ERR] Calculation Error: decimal number too large: Value was either too large or too small for a Decimal. (bd93b623)
+System.OverflowException: Value was either too large or too small for a Decimal.
+   at System.Number.ThrowOverflowException(TypeCode type)
+   at System.Decimal.DecCalc.DecAddSub(DecCalc& d1, DecCalc& d2, Boolean sign)
+   at System.Decimal.op_Addition(Decimal d1, Decimal d2)
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 67
