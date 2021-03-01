@@ -205,5 +205,17 @@ namespace MathsApp.Tests
             // Assert
             Assert.Equal("2+4-15", result);
         }
+
+        [Fact]
+        public void CalculateBODMASEndToEnd()
+        {
+            // Act
+            IActionResult result = mathsController.Calculate("2+2*2-5*6/2", true);
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal(200, ((OkObjectResult)result).StatusCode);
+            Assert.Equal(-9m, ((OkObjectResult)result).Value);
+        }
     }
 }

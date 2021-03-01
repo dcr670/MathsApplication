@@ -38,6 +38,11 @@ namespace MathsApp.Controllers
 
             try
             {
+                if (useBODMAS)
+                {
+                    expr = CalculateBODMAS(expr);
+                }
+
                 string[] calculationParts = Regex.Split(expr, _config.SplitRegExPattern);
 
                 if (!decimal.TryParse(calculationParts[0], out total))
