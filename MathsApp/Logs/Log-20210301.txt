@@ -108,3 +108,58 @@ System.OverflowException: Value was either too large or too small for a Decimal.
    at System.Decimal.DecCalc.DecAddSub(DecCalc& d1, DecCalc& d2, Boolean sign)
    at System.Decimal.op_Addition(Decimal d1, Decimal d2)
    at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 67
+2021-03-01T11:38:15.6984513+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:38:15.7097602+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:38:15.7115818+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:39:39.7771448+00:00 8000000c-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 10x10 (46fc20ff)
+System.InvalidCastException: 10x10
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:39:40.1486811+00:00 8000000c-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=10x10): Error: Undefined symbol x10 (1770b0f8)
+2021-03-01T11:40:35.3024754+00:00 8000000e-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 10x10 (46fc20ff)
+System.InvalidCastException: 10x10
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:40:35.5434742+00:00 8000000e-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=10x10): Error: Undefined symbol x10 (1770b0f8)
+2021-03-01T11:40:48.1026437+00:00 8000000f-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: x (13a5b7b4)
+System.InvalidCastException: x
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:40:48.3681450+00:00 8000000f-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=x*10): Error: Undefined symbol x (7da2037b)
+2021-03-01T11:41:24.2833292+00:00 80000010-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: x (13a5b7b4)
+System.InvalidCastException: x
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:41:24.5153883+00:00 80000010-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=x*10): Error: Undefined symbol x (7da2037b)
+2021-03-01T11:42:09.7227127+00:00 80000011-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 10 2 (32931950)
+System.InvalidCastException: 10 2
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:42:10.0203139+00:00 80000011-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=10+2*2): Error: Unexpected part "2" (char 4) (2a6ef537)
+2021-03-01T11:42:17.7173495+00:00 80000012-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 10 2 (32931950)
+System.InvalidCastException: 10 2
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:42:17.9295986+00:00 80000012-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=10+2*2): Error: Unexpected part "2" (char 4) (2a6ef537)
+2021-03-01T11:42:48.9737060+00:00 80000015-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 2 2 (9b470201)
+System.InvalidCastException: 2 2
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:42:49.1931157+00:00 80000015-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=2+2*2): Error: Unexpected part "2" (char 3) (94651728)
+2021-03-01T11:44:40.3555990+00:00 80000018-0004-fd00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 2 2 (9b470201)
+System.InvalidCastException: 2 2
+   at MathsApp.Controllers.MathsController.CalculateBODMAS(String expr) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 146
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 45
+2021-03-01T11:44:40.5918718+00:00 80000018-0004-fd00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=2+2*2): Error: Unexpected part "2" (char 3) (94651728)
+2021-03-01T11:50:05.0561804+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T11:50:05.0646943+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T11:50:05.0648785+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T11:50:05.1915453+00:00 80000005-0000-fb00-b63f-84710c7967bb [ERR] Calculation Error: decimal number too large: Value was either too large or too small for a Decimal. (bd93b623)
+System.OverflowException: Value was either too large or too small for a Decimal.
+   at System.Number.ThrowOverflowException(TypeCode type)
+   at System.Decimal.DecCalc.DecAddSub(DecCalc& d1, DecCalc& d2, Boolean sign)
+   at System.Decimal.op_Addition(Decimal d1, Decimal d2)
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 67
+2021-03-01T11:50:19.3420240+00:00 80000007-0000-fb00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 79228162514264337593543950335 9999 (6cbf31f5)
+System.InvalidCastException: 79228162514264337593543950335 9999
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 55
+2021-03-01T11:50:19.6090708+00:00 80000007-0000-fb00-b63f-84710c7967bb [ERR] Error calling 3rd party maths service (http://api.mathjs.org/v4/?expr=79228162514264337593543950335+9999): Error: Unexpected part "9999" (char 31) (068b32b7)
+2021-03-01T11:50:28.0225817+00:00 80000008-0000-fb00-b63f-84710c7967bb [ERR] Calculation Error: decimal number too large: Value was either too large or too small for a Decimal. (bd93b623)
+System.OverflowException: Value was either too large or too small for a Decimal.
+   at System.Number.ThrowOverflowException(TypeCode type)
+   at System.Decimal.DecCalc.DecAddSub(DecCalc& d1, DecCalc& d2, Boolean sign)
+   at System.Decimal.op_Addition(Decimal d1, Decimal d2)
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 67

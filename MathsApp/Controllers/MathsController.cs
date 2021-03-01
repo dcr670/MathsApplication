@@ -114,7 +114,7 @@ namespace MathsApp.Controllers
                     }
                     catch (Exception exFallBack)
                     {
-                        return BadRequest($"MathsApp Error: Calculation Error: value not a valid decimal number: {ex.Message}, invoked Fallback Service: {exFallBack.Message}");
+                        return BadRequest($"MathsApp Error: decimal number too large: {ex.Message}, invoked Fallback Service: {exFallBack.Message}");
                     }
                 }
 
