@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Text.RegularExpressions;
 
 namespace MathsApp.Controllers
 {
@@ -27,7 +28,40 @@ namespace MathsApp.Controllers
 
         public IActionResult Calculate(string expr, bool useBODMAS = false)
         {
-            return BadRequest("Bad Request");
+            decimal value;
+            decimal total;
+            string operation;
+
+            string[] calculationParts = Regex.Split(expr, _config.SplitRegExPattern);
+
+            decimal.TryParse(calculationParts[0], out total);
+
+            for (int position = 1; position < calculationParts.Length - 1; position += 2)
+            {
+                operation = calculationParts[position];
+
+                decimal.TryParse(calculationParts[position + 1], out value);
+
+                switch (operation)
+                {
+                    case "+":
+                        total += value;
+                        break;
+                    case "-":
+                        total -= value;
+                        break;
+                    case "*":
+                        total *= value;
+                        break;
+                    case "/":
+                        total /= value;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return Ok(total);
         }
     }
 }
