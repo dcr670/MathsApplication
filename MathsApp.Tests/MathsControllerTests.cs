@@ -29,7 +29,6 @@ namespace MathsApp.Tests
             }
         }
 
-
         public MathsControllerTests()
         {
             var mathsOptions = new MathsOptionsList();
@@ -110,6 +109,18 @@ namespace MathsApp.Tests
             Assert.IsType<BadRequestObjectResult>(result);
             Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
             Assert.Equal("Calculation Error: value not a valid decimal number: 10&2", ((BadRequestObjectResult)result).Value);
+        }
+
+        [Fact]
+        public void CalculatOverflowError()
+        {
+            // Act
+            IActionResult result = mathsController.Calculate("79228162514264337593543950335+9999");
+
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
+            Assert.StartsWith("Calculation Error: decimal number too large:", ((BadRequestObjectResult)result).Value.ToString());
         }
     }
 }

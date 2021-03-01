@@ -1,0 +1,9 @@
+2021-03-01T09:43:18.9707863+00:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-01T09:43:18.9818523+00:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-01T09:43:18.9834963+00:00  [INF] Content root path: "C:\Users\david\source\repos\MathsApplication\MathsApp" (b5d60022)
+2021-03-01T09:43:30.8097339+00:00 80000006-0000-ff00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 10.2 5 (5ffe750b)
+System.InvalidCastException: 10.2 5
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 45
+2021-03-01T09:44:01.7278646+00:00 80000007-0000-ff00-b63f-84710c7967bb [ERR] Calculation Error: value not a valid decimal number: 10.2 5 (5ffe750b)
+System.InvalidCastException: 10.2 5
+   at MathsApp.Controllers.MathsController.Calculate(String expr, Boolean useBODMAS) in C:\Users\david\source\repos\MathsApplication\MathsApp\Controllers\MathsController.cs:line 45
