@@ -94,7 +94,49 @@ namespace MathsApp.Controllers
 
         public string CalculateBODMAS(string expr)
         {
-            return expr;
+            decimal leftValue;
+            decimal rightValue;
+            string oper;
+            string bodmasFormula = string.Empty;
+
+            string pattern = _config.SplitBODMASRegExPattern;
+            string[] calculationParts = Regex.Split(expr, pattern);
+
+            if (!decimal.TryParse(calculationParts[0], out leftValue))
+            {
+                throw new InvalidCastException(calculationParts[0]);
+            }
+
+            for (int position = 1; position < calculationParts.Length - 1; position += 2)
+            {
+                oper = calculationParts[position];
+
+                if (!decimal.TryParse(calculationParts[position + 1], out rightValue))
+                {
+                    throw new InvalidCastException(calculationParts[position + 1]);
+                }
+
+                switch (oper)
+                {
+                    case "+":
+                    case "-":
+                        bodmasFormula += leftValue + oper;
+                        leftValue = rightValue;
+                        break;
+                    case "*":
+                        leftValue = leftValue * rightValue;
+                        break;
+                    case "/":
+                        leftValue = leftValue / rightValue;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            bodmasFormula += leftValue;
+
+            return bodmasFormula;
         }
     }
 }
