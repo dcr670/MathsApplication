@@ -122,5 +122,88 @@ namespace MathsApp.Tests
             Assert.Equal(400, ((BadRequestObjectResult)result).StatusCode);
             Assert.StartsWith("Calculation Error: decimal number too large:", ((BadRequestObjectResult)result).Value.ToString());
         }
+
+        [Fact]
+        public void CalculatInvalidBODMAS()
+        {
+            // Act
+            IActionResult result = mathsController.Calculate("2+2*2");
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal(200, ((OkObjectResult)result).StatusCode);
+            Assert.Equal(8m, ((OkObjectResult)result).Value);
+        }
+
+
+        [Fact]
+        public void CalculateBODMASAddTwoNumbers()
+        {
+            // Act
+            string result = mathsController.CalculateBODMAS("2+2");
+
+            // Assert
+            Assert.Equal("2+2", result);
+        }
+
+        [Fact]
+        public void CalculateBODMASSubtractTwoNumbers()
+        {
+            // Act
+            string result = mathsController.CalculateBODMAS("2-2");
+
+            // Assert
+            Assert.Equal("2-2", result);
+        }
+
+        [Fact]
+        public void CalculateBODMASDivideTwoNumbers()
+        {
+            // Act
+            string result = mathsController.CalculateBODMAS("10/2");
+
+            // Assert
+            Assert.Equal("5", result);
+        }
+
+        [Fact]
+        public void CalculateBODMASMultiplyTwoNumbers()
+        {
+            // Act
+            string result = mathsController.CalculateBODMAS("10*2");
+
+            // Assert
+            Assert.Equal("20", result);
+        }
+
+        [Fact]
+        public void CalculateBODMASAddTwoDecimalNumbers()
+        {
+            // Act
+            string result = mathsController.CalculateBODMAS("10.2+5.3");
+
+            // Assert
+            Assert.Equal("10.2+5.3", result);
+        }
+
+        [Fact]
+        public void CalculateBODMASValidBODMAS()
+        {
+            // Act
+            string result = mathsController.CalculateBODMAS("2+2*2");
+
+            // Assert
+            Assert.Equal("2+4", result);
+        }
+
+        [Fact]
+        public void CalculateBODMASComplex()
+        {
+            // Act
+            string result = mathsController.CalculateBODMAS("2+2*2-5*6/2");
+
+            // Assert
+            Assert.Equal("2+4-15", result);
+        }
     }
 }

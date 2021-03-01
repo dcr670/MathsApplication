@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
+using System.Net;
+using System.Net.Http;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace MathsApp.Controllers
 {
@@ -87,6 +90,11 @@ namespace MathsApp.Controllers
                 _logger.LogError(ex, "Unexpected Error");
                 return BadRequest("Unexpected Error");
             }
+        }
+
+        public string CalculateBODMAS(string expr)
+        {
+            return expr;
         }
     }
 }
